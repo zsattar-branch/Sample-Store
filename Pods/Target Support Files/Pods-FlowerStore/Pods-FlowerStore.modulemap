@@ -1,0 +1,6 @@
+framework module Pods_FlowerStore {
+  umbrella header "Pods-FlowerStore-umbrella.h"
+
+  export *
+  module * { export * }
+}
