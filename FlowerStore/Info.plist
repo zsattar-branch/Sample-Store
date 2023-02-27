@@ -21,5 +21,32 @@
 			</array>
 		</dict>
 	</dict>
+	<key>branch_key</key>
+	<dict>
+		<key>live</key>
+		<string>key_live_jkWVdt0qINMJQ23NoASn5bhcADbKqaCv</string>
+		<key>test</key>
+		<string>key_test_mp8PlCZwPSHPJZ0McCIh8icjvFnMEiAS</string>
+	</dict>
+	<key>branch_universal_link_domains</key>
+	<array>
+		<string>zains.app.link</string>
+		<string>zains-alternate.app.link</string>
+		<string>zains.test-app.link</string>
+		<string>zains-alternate.test-app.link</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>zains</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>Imodeveloperlab.FlowerStore</string>
+		</dict>
+	</array>
 </dict>
 </plist>
