@@ -23,9 +23,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
       Branch.getInstance().enableLogging()
 
-      Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
+      Branch.getInstance().initSession(launchOptions: launchOptions) { (deepLinkingParams, error) in
            // do stuff with deep link data (nav to page, display content, etc)
-          print(params as? [String: AnyObject] ?? {})
+          print(deepLinkingParams as? [String: AnyObject] ?? {})
+          
+          //store deeplink data to data
+          guard let data = deepLinkingParams as? [String: AnyObject] else { return }
+
+          //Store deeplink path if presents
+
+          guard let options = data["$deeplink_path"] as? String else { return }
+
+          //Printing $deeplink_path
+          print(options)
+          
       }
       return true
     }
