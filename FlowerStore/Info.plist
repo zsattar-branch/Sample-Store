@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Imodeveloperlab.FlowerStore</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>zains</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -34,19 +47,6 @@
 		<string>zains-alternate.app.link</string>
 		<string>zains.test-app.link</string>
 		<string>zains-alternate.test-app.link</string>
-	</array>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>zains</string>
-			</array>
-			<key>CFBundleURLName</key>
-			<string>Imodeveloperlab.FlowerStore</string>
-		</dict>
 	</array>
 </dict>
 </plist>
