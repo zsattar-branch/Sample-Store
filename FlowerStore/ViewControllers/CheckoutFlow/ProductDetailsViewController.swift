@@ -72,6 +72,13 @@ open class ProductDetailsViewController: DSViewController {
                     print(url ?? "")
                 }
             
+            //Share deep link
+            
+            let message = "Check out this link with amazing flowers"
+            buo.showShareSheet(with: lp, andShareText: message, from: self) { (activityType, completed) in
+              print(activityType ?? "")
+            }
+            
         }
         
         
