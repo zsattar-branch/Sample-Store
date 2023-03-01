@@ -39,17 +39,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           //Printing $deeplink_path
           print("This is the deep link data presents", options)
           
-            if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
-                        switch options {
-                        case "contacts":
-                            let launchVC = navigationController.viewControllers.last as? ViewController
-                            launchVC?.gotoItemOneDetailVC()
-                        case "aboutUs":
-                            let launchVC = navigationController.viewControllers.last as? ViewController
-                            launchVC?.gotoItemSecondDetailVC()
-                        default: break
-                        }
-                    }
+//            if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+//                        switch options {
+//                        case "contacts":
+//                            let launchVC = navigationController.viewControllers.last as? ViewController
+//                            launchVC?.gotoItemOneDetailVC()
+//                        case "aboutUs":
+//                            let launchVC = navigationController.viewControllers.last as? ViewController
+//                            launchVC?.gotoItemSecondDetailVC()
+//                        default: break
+//                        }
+//                    }
       }
       return true
     }

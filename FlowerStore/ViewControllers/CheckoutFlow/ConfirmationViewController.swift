@@ -70,6 +70,8 @@ extension ConfirmationViewController {
         viewModels.append(serviceRow(title: "Love her CARD", price: DSPrice(amount: "14.00", currency: "$")))
         viewModels.append(serviceRow(bold: true, title: "Total", price: DSPrice(amount: "74.00", currency: "$")))
         return viewModels.list(separator: true, grouped: true).subheadlineHeader("Totals")
+        
+        
     }
 }
 

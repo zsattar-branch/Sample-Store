@@ -14,6 +14,7 @@ open class ProductDetailsViewController: DSViewController {
     let product: Product
     
     let buo = BranchUniversalObject()
+    let lp = BranchLinkProperties()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,8 @@ open class ProductDetailsViewController: DSViewController {
         // Buy button
         let buyNow = DSButtonVM(title: "Buy Now", icon: UIImage(systemName: "deeplink.fill")) { [unowned self] tap in
             self.push(YouMayAlsoLikeViewController())
+            
+            //Set BUO
             buo.canonicalIdentifier = "item/12345"
             buo.title = product.title
             buo.contentDescription = product.description
@@ -46,7 +49,27 @@ open class ProductDetailsViewController: DSViewController {
             buo.canonicalUrl = "https://help.branch.io"
             
             print (buo)
+            
+            //Set Link Properties
+            lp.channel = "In-app"
+            lp.feature = "sharing"
+            lp.campaign = "Buy Flowers"
+            lp.stage = "new user"
+            lp.alias = product.title
+            lp.tags = [product.title, product.description,product.price.currency]
+            lp.addControlParam("$desktop_url", withValue: "http://example.com/desktop")
+            lp.addControlParam("$ios_url", withValue: "http://example.com/ios")
+            lp.addControlParam("$ipad_url", withValue: "http://example.com/ios")
+            lp.addControlParam("$android_url", withValue: "http://example.com/android")
+            lp.addControlParam("custom_data", withValue: "yes")
+            lp.addControlParam("look_at", withValue: "this")
+            lp.addControlParam("nav_to", withValue: "over here")
+            
+            print (lp)
+            
+            
         }
+        
         
         // Show bottom content
         showBottom(content: buyNow)
