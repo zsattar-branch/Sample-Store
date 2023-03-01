@@ -55,7 +55,7 @@ open class ProductDetailsViewController: DSViewController {
             lp.feature = "sharing"
             lp.campaign = "Buy Flowers"
             lp.stage = "new user"
-            lp.alias = product.title
+//            lp.alias = product.title
             lp.tags = [product.title, product.description,product.price.currency]
             lp.addControlParam("$desktop_url", withValue: "http://example.com/desktop")
             lp.addControlParam("$ios_url", withValue: "http://example.com/ios")
@@ -67,6 +67,10 @@ open class ProductDetailsViewController: DSViewController {
             
             print (lp)
             
+            //Create deep link
+            buo.getShortUrl(with: lp) { url, error in
+                    print(url ?? "")
+                }
             
         }
         
