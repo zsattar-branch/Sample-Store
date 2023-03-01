@@ -8,11 +8,17 @@
 import UIKit
 import DSKit
 import DSKitFakery
+import BranchSDK
 
 open class ConfirmationViewController: DSViewController {
     
     // Random data generator, an wrapper around https://github.com/vadymmarkov/Fakery
     let faker = DSFaker()
+    
+
+    
+    let buo = BranchUniversalObject()
+    let lp = BranchLinkProperties()
     
     open override func viewDidLoad() {
         
@@ -25,6 +31,46 @@ open class ConfirmationViewController: DSViewController {
             self.show(message: "Your order was successfully paid", type: .success, timeOut: 1) {
                 self.popToRoot()
             }
+            //Set BUO
+            buo.canonicalIdentifier = "item/12345"
+            buo.title = "Title"
+            buo.contentDescription = description
+            buo.imageUrl = "https://branch.io/img/logo-dark.svg"
+            buo.publiclyIndex = true
+            buo.locallyIndex = true
+            buo.canonicalUrl = "https://help.branch.io"
+            
+            print (buo)
+            
+            //Set Link Properties
+            lp.channel = "In-app"
+            lp.feature = "sharing"
+            lp.campaign = "Buy Flowers"
+            lp.stage = "new user"
+//            lp.alias = product.title
+            lp.tags = [description]
+            lp.addControlParam("$desktop_url", withValue: "http://example.com/desktop")
+            lp.addControlParam("$ios_url", withValue: "http://example.com/ios")
+            lp.addControlParam("$ipad_url", withValue: "http://example.com/ios")
+            lp.addControlParam("$android_url", withValue: "http://example.com/android")
+            lp.addControlParam("custom_data", withValue: "yes")
+            lp.addControlParam("look_at", withValue: "this")
+            lp.addControlParam("nav_to", withValue: "over here")
+            
+            print (lp)
+            
+            let qrCode = BranchQRCode()
+            qrCode.codeColor = UIColor.white
+            qrCode.backgroundColor = UIColor.blue
+            qrCode.centerLogo = "https://cdn.branch.io/branch-assets/1598575682753-og_image.png"
+            qrCode.width = 1024
+            qrCode.margin = 1
+            qrCode.imageFormat = .JPEG
+            
+            qrCode.showShareSheetWithQRCode(from: self, anchor: nil, universalObject: buo, linkProperties: lp) { error in
+                //Showing a share sheet with the QR code
+            }
+            
         }
         
         self.showBottom(content: button)
