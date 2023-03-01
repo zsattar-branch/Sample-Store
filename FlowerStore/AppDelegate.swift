@@ -27,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //SetMetadataKey
         branch.setRequestMetadataKey("$marketing_cloud_visitor_id", value: "123456789")
         
+        //Tracking User Id
+        let userID = branch.setIdentity("User Zain")
+        print(userID)
+        
         
         branch.initSession(launchOptions: launchOptions) { (params, error) in
            // do stuff with deep link data (nav to page, display content, etc)
