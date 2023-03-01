@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       let branch = Branch.getInstance()
         branch.enableLogging()
         branch.checkPasteboardOnInstall()
+        //SetMetadataKey
+        branch.setRequestMetadataKey("$marketing_cloud_visitor_id", value: "123456789")
+        
         
         branch.initSession(launchOptions: launchOptions) { (params, error) in
            // do stuff with deep link data (nav to page, display content, etc)
@@ -35,9 +38,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           //Store deeplink path if presents
 
           guard let options = data["$deeplink_path"] as? String else { return }
+          
+          // Store metadata key
+          guard let adobe = data["$marketing_cloud_visitor_id"] as? String else { return }
 
+            
           //Printing $deeplink_path
           print("This is the deep link data presents", options)
+            
+          //Print Metadata key
+          print(adobe)
           
 //            if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
 //                        switch options {
