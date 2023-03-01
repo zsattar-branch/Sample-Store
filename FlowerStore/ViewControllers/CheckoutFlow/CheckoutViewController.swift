@@ -8,6 +8,7 @@
 import UIKit
 import DSKit
 import DSKitFakery
+import BranchSDK
 
 open class CheckoutViewController: DSViewController {
     
@@ -39,6 +40,19 @@ open class CheckoutViewController: DSViewController {
         // Bottom button
         let button = DSButtonVM(title: "Continue") { button in
             self.push(CheckoutOptionsViewController())
+            
+            //Log Initiate Purchase Event
+            let event = BranchEvent.standardEvent(.initiatePurchase)
+            event.alias = self.description
+            event.eventDescription = self.title
+            event.alias = self.userFullName
+            event.transactionID = self.recipientPhoneNumber
+            event.customData       = [
+                "Custom_Event_Property_Key1": "Custom_Event_Property_val1",
+                "Custom_Event_Property_Key2": "Custom_Event_Property_val2"
+            ]
+            event.logEvent() //log event
+            print(event)
         }
         
         showBottom(content: button)

@@ -34,6 +34,8 @@
 		60CE888B27B566130084493C /* PayMethods.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60CE888A27B566120084493C /* PayMethods.xcassets */; };
 		60D4E11127C4D35D006DC65A /* PeachAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4E11027C4D35D006DC65A /* PeachAppearance.swift */; };
 		821C88EEEC2FB41096756353 /* Pods_FlowerStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5856277B1A81D2F96FDFF006 /* Pods_FlowerStore.framework */; };
+		A5DC5E5229AFF08200832351 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DC5E5129AFF08200832351 /* AdSupport.framework */; };
+		A5DC5E5429AFF2BA00832351 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DC5E5329AFF2BA00832351 /* AppTrackingTransparency.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		60CE888A27B566120084493C /* PayMethods.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PayMethods.xcassets; sourceTree = "<group>"; };
 		60D4E11027C4D35D006DC65A /* PeachAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeachAppearance.swift; sourceTree = "<group>"; };
 		A5C896C529AD008F0060FBAD /* FlowerStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlowerStore.entitlements; sourceTree = "<group>"; };
+		A5DC5E5129AFF08200832351 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		A5DC5E5329AFF2BA00832351 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		B37D9D31673FA1126C6D6454 /* Pods-FlowerStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerStore.debug.xcconfig"; path = "Target Support Files/Pods-FlowerStore/Pods-FlowerStore.debug.xcconfig"; sourceTree = "<group>"; };
 		E4A5E1E76A6A5C188F343DDF /* Pods-FlowerStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerStore.release.xcconfig"; path = "Target Support Files/Pods-FlowerStore/Pods-FlowerStore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5DC5E5429AFF2BA00832351 /* AppTrackingTransparency.framework in Frameworks */,
+				A5DC5E5229AFF08200832351 /* AdSupport.framework in Frameworks */,
 				60B1C01E27C6958F0056843D /* DSKitFakery in Frameworks */,
 				60B1C01A27C6958F0056843D /* DSKit in Frameworks */,
 				60B1C01C27C6958F0056843D /* DSKitCalendar in Frameworks */,
@@ -176,6 +182,8 @@
 		60CE888327B5651C0084493C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5DC5E5329AFF2BA00832351 /* AppTrackingTransparency.framework */,
+				A5DC5E5129AFF08200832351 /* AdSupport.framework */,
 				5856277B1A81D2F96FDFF006 /* Pods_FlowerStore.framework */,
 			);
 			name = Frameworks;
@@ -491,7 +499,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,7 +530,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
