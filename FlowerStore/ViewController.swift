@@ -17,6 +17,7 @@ open class ViewController: DSTabBarViewController {
     
     open override func viewDidLoad() {
         
+        
         super.viewDidLoad()
         store.tabBarItem.title = "Store"
         store.tabBarItem.image = UIImage(systemName: "bag.fill")
@@ -35,6 +36,14 @@ open class ViewController: DSTabBarViewController {
                             DSNavigationViewController(rootViewController: aboutUs),
                             DSNavigationViewController(rootViewController: contacts)], animated: true)
     }
+    
+    func gotoItemOneDetailVC() {
+           self.push(DSNavigationViewController(rootViewController: contacts))
+       }
+       
+       func gotoItemSecondDetailVC() {
+           self.push(DSNavigationViewController(rootViewController: aboutUs))
+       }
     
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

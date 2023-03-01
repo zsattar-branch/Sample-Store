@@ -7,10 +7,13 @@
 
 import UIKit
 import DSKit
+import BranchSDK
 
 open class ProductDetailsViewController: DSViewController {
     
     let product: Product
+    
+    let buo = BranchUniversalObject()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +34,18 @@ open class ProductDetailsViewController: DSViewController {
                        getTopProductsSection()])
         
         // Buy button
-        let buyNow = DSButtonVM(title: "Buy Now", icon: UIImage(systemName: "cart.fill")) { [unowned self] tap in
+        let buyNow = DSButtonVM(title: "Buy Now", icon: UIImage(systemName: "deeplink.fill")) { [unowned self] tap in
             self.push(YouMayAlsoLikeViewController())
+            buo.canonicalIdentifier = "item/12345"
+            buo.title = product.title
+            buo.contentDescription = product.description
+            buo.imageUrl = "https://branch.io/img/logo-dark.svg"
+            buo.publiclyIndex = true
+            buo.locallyIndex = true
+            buo.contentMetadata.customMetadata["price"] = product.price
+            buo.canonicalUrl = "https://help.branch.io"
+            
+            print (buo)
         }
         
         // Show bottom content

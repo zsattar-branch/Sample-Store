@@ -20,22 +20,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // if you are using the TEST key
       //Branch.setUseTestBranchKey(false)
       // listener for Branch Deep Link data
-        
-      Branch.getInstance().enableLogging()
 
-      Branch.getInstance().initSession(launchOptions: launchOptions) { (deepLinkingParams, error) in
+      let branch = Branch.getInstance()
+        branch.enableLogging()
+        branch.checkPasteboardOnInstall()
+        
+        branch.initSession(launchOptions: launchOptions) { (params, error) in
            // do stuff with deep link data (nav to page, display content, etc)
-          print(deepLinkingParams as? [String: AnyObject] ?? {})
+          print(params as? [String: AnyObject] ?? {})
           
           //store deeplink data to data
-          guard let data = deepLinkingParams as? [String: AnyObject] else { return }
+          guard let data = params as? [String: AnyObject] else { return }
 
           //Store deeplink path if presents
 
           guard let options = data["$deeplink_path"] as? String else { return }
 
           //Printing $deeplink_path
-          print(options)
+          print("This is the deep link data presents", options)
           
       }
       return true
