@@ -8,6 +8,7 @@
 import UIKit
 import DSKit
 import DSKitFakery
+import BranchSDK
 
 open class ContactsViewController: DSViewController {
     
@@ -38,8 +39,20 @@ extension ContactsViewController {
         let health = textRow(title: "Health and safety: ", details: "Mask required · Temperature check required · Staff wear masks · Staff get temperature checks", icon: "info.circle.fill")
         let map = DSMapVM(coordinate: faker.address.coordinate)
         let button = DSButtonVM(title: "Get directions", icon: UIImage(systemName: "map.fill"))
+
+        //Disable User Tracking
+        let userTracking = DSButtonVM(title: "User Tracking") { (tap) in
+            switch Branch.trackingDisabled() {
+            case false:
+                Branch.setTrackingDisabled(true)
+                print("Tracking Disabled")
+            case true:
+                Branch.setTrackingDisabled(false)
+                print("Tracking Enabled")
+            }
+        }
         
-        return [phone, address, workingHours, health, map, button].list()
+        return [phone, address, workingHours, health, map, button, userTracking].list()
     }
     
     /// Text row
