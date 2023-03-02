@@ -15,6 +15,9 @@ open class ContactsViewController: DSViewController {
     // Random data generator, an wrapper around https://github.com/vadymmarkov/Fakery
     let faker = DSFaker()
     
+    let buo = BranchUniversalObject()
+    let lp = BranchLinkProperties()
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         title = "Contacts"
@@ -40,8 +43,8 @@ extension ContactsViewController {
         let map = DSMapVM(coordinate: faker.address.coordinate)
         let button = DSButtonVM(title: "Get directions", icon: UIImage(systemName: "map.fill"))
 
-        //Disable User Tracking
-        let userTracking = DSButtonVM(title: "User Tracking") { (tap) in
+        //Toggle User Tracking
+        let userTracking = DSButtonVM(title: "Toggle User Tracking") { (tap) in
             switch Branch.trackingDisabled() {
             case false:
                 Branch.setTrackingDisabled(true)
@@ -52,7 +55,52 @@ extension ContactsViewController {
             }
         }
         
-        return [phone, address, workingHours, health, map, button, userTracking].list()
+        //Set BUO
+        buo.canonicalIdentifier = "item/12345"
+        buo.title = "Title"
+        buo.contentDescription = description
+        buo.imageUrl = "https://branch.io/img/logo-dark.svg"
+        buo.publiclyIndex = true
+        buo.locallyIndex = true
+        buo.canonicalUrl = "https://help.branch.io"
+        
+        print (buo)
+        
+        //Set Link Properties
+        lp.channel = "In-app"
+        lp.feature = "sharing"
+        lp.campaign = "Buy Flowers"
+        lp.stage = "new user"
+//            lp.alias = product.title
+        lp.tags = [description]
+        lp.addControlParam("$desktop_url", withValue: "http://example.com/desktop")
+        lp.addControlParam("$ios_url", withValue: "http://example.com/ios")
+        lp.addControlParam("$ipad_url", withValue: "http://example.com/ios")
+        lp.addControlParam("$android_url", withValue: "http://example.com/android")
+        lp.addControlParam("custom_data", withValue: "yes")
+        lp.addControlParam("look_at", withValue: "this")
+        lp.addControlParam("nav_to", withValue: "over here")
+        
+        print (lp)
+        
+        let qrCode = BranchQRCode()
+        qrCode.codeColor = UIColor.white
+        qrCode.backgroundColor = UIColor.blue
+        qrCode.centerLogo = "https://cdn.branch.io/branch-assets/1598575682753-og_image.png"
+        qrCode.width = 1024
+        qrCode.margin = 1
+        qrCode.imageFormat = .JPEG
+        
+    
+        //Genereate QR Code Button
+        let generateQRCode = DSButtonVM(title: "Generate QR Code") { (tap) in
+            qrCode.showShareSheetWithQRCode(from: self, anchor: nil, universalObject: self.buo, linkProperties: self.lp) { error in
+                //Showing a share sheet with the QR code
+            }
+        }
+        
+        
+        return [phone, address, workingHours, health, map, button, userTracking, generateQRCode].list()
     }
     
     /// Text row
