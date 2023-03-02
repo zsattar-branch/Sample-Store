@@ -99,8 +99,21 @@ extension ContactsViewController {
             }
         }
         
+        //Create Deep Link
+        let createDeepLink = DSButtonVM(title: "Create Deep Link") { (tap) in
+            self.buo.getShortUrl(with: self.lp) { url, error in
+                    print(url ?? "")
+                }
+        }
         
-        return [phone, address, workingHours, health, map, button, userTracking, generateQRCode].list()
+        let shareDeepLink = DSButtonVM(title: "Share Deep Link") { (tap) in
+            let message = "Check out this link with amazing flowers"
+            self.buo.showShareSheet(with: self.lp, andShareText: message, from: self) { (activityType, completed) in
+                print(activityType ?? "")
+            }
+        }
+        
+        return [phone, address, workingHours, health, map, button, userTracking, generateQRCode, createDeepLink, shareDeepLink].list()
     }
     
     /// Text row

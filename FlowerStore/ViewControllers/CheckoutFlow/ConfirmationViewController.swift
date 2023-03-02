@@ -27,6 +27,8 @@ open class ConfirmationViewController: DSViewController {
             self.show(message: "Your order was successfully paid", type: .success, timeOut: 1) {
                 self.popToRoot()
             }
+            
+            //Add Purchase Event
             let event = BranchEvent.standardEvent(.purchase)
             event.alias = self.description
             event.eventDescription = self.title
