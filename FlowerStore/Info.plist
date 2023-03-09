@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Please allow Branch to show you personalized ads</string>
+	<string>We are tracking</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

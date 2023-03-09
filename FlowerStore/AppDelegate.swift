@@ -8,6 +8,8 @@
 import UIKit
 import DSKit
 import BranchSDK
+import AppTrackingTransparency
+import AdSupport
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

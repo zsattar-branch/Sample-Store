@@ -9,6 +9,8 @@ import UIKit
 import DSKit
 import DSKitFakery
 import BranchSDK
+import AppTrackingTransparency
+import AdSupport
 
 open class ContactsViewController: DSViewController {
     
@@ -113,7 +115,21 @@ extension ContactsViewController {
             }
         }
         
-        return [phone, address, workingHours, health, map, button, userTracking, generateQRCode, createDeepLink, shareDeepLink].list()
+        let attPrompt = DSButtonVM(title: "ATT Prompt"){ (tap) in
+            
+            if #available(iOS 14, *) {
+                ATTrackingManager.requestTrackingAuthorization(completionHandler: {
+                    status in
+                    if (status == .authorized) {
+                        let idfa = ASIdentifierManager.shared().advertisingIdentifier
+                        print("IDFA: " + idfa.uuidString)
+                    } else {
+                        print("Failed to get IDFA")
+                    }
+                })
+            }
+        }
+        return [phone, address, workingHours, health, map, button, userTracking, generateQRCode, createDeepLink, shareDeepLink, attPrompt].list()
     }
     
     /// Text row

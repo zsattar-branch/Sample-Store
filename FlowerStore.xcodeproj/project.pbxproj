@@ -34,8 +34,8 @@
 		60CE888B27B566130084493C /* PayMethods.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60CE888A27B566120084493C /* PayMethods.xcassets */; };
 		60D4E11127C4D35D006DC65A /* PeachAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D4E11027C4D35D006DC65A /* PeachAppearance.swift */; };
 		821C88EEEC2FB41096756353 /* Pods_FlowerStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5856277B1A81D2F96FDFF006 /* Pods_FlowerStore.framework */; };
-		A5DC5E5229AFF08200832351 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DC5E5129AFF08200832351 /* AdSupport.framework */; };
-		A5DC5E5429AFF2BA00832351 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DC5E5329AFF2BA00832351 /* AppTrackingTransparency.framework */; };
+		A5227C1329BAA234000F4BBE /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DC5E5329AFF2BA00832351 /* AppTrackingTransparency.framework */; };
+		A5227C1629BAA236000F4BBE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DC5E5129AFF08200832351 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,12 +77,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5DC5E5429AFF2BA00832351 /* AppTrackingTransparency.framework in Frameworks */,
-				A5DC5E5229AFF08200832351 /* AdSupport.framework in Frameworks */,
 				60B1C01E27C6958F0056843D /* DSKitFakery in Frameworks */,
 				60B1C01A27C6958F0056843D /* DSKit in Frameworks */,
+				A5227C1329BAA234000F4BBE /* AppTrackingTransparency.framework in Frameworks */,
 				60B1C01C27C6958F0056843D /* DSKitCalendar in Frameworks */,
 				821C88EEEC2FB41096756353 /* Pods_FlowerStore.framework in Frameworks */,
+				A5227C1629BAA236000F4BBE /* AdSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +499,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,7 +530,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
