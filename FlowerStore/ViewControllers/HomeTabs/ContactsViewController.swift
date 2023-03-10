@@ -11,6 +11,7 @@ import DSKitFakery
 import BranchSDK
 import AppTrackingTransparency
 import AdSupport
+import UserNotifications
 
 open class ContactsViewController: DSViewController {
     
@@ -129,7 +130,47 @@ extension ContactsViewController {
                 })
             }
         }
-        return [phone, address, workingHours, health, map, button, userTracking, generateQRCode, createDeepLink, shareDeepLink, attPrompt].list()
+        
+        
+        let requestpushNotifications = DSButtonVM(title: "Ask for permission"){ (tap) in
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                if success {
+                    print("All set!")
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        
+        let pushNotifications = DSButtonVM(title: "Push Notification"){ (tap) in
+            
+            // Create Notification Content
+                
+            self.buo.getShortUrl(with: self.lp) { (string, error) in
+                let notificationContent = UNMutableNotificationContent()
+                
+                // Configure Notification Content
+                notificationContent.title = "Push Notification"
+                notificationContent.subtitle = "Local Notifications"
+                notificationContent.body = "Click to test Branch deep link"
+                
+                // Add Trigger
+                let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false)
+                
+                // Create Notification Request
+                let notificationRequest = UNNotificationRequest(identifier: "Branch Link", content: notificationContent, trigger: notificationTrigger)
+                
+                // Add Request to User Notification Center
+                UNUserNotificationCenter.current().add(notificationRequest) { (error) in
+                    if let error = error {
+                        print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
+                    }
+                }
+            }
+        }
+        
+        return [phone, address, workingHours, health, map, button, userTracking, generateQRCode, createDeepLink, shareDeepLink, requestpushNotifications,pushNotifications,attPrompt].list()
     }
     
     /// Text row

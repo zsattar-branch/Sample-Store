@@ -49,9 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           //Printing $deeplink_path
           print("This is the deep link data presents", options)
             
-          // Store metadata key
+          //Store metadata key
           guard let adobe = data["$marketing_cloud_visitor_id"] as? String else { return }
-            
+
           //Print Metadata key
           print(adobe)
           
